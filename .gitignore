@@ -1,0 +1,7 @@
+target/
+
+#Ipython Trabalho
+.ipynb_checkpoints
+db.sqlite3
+
+local_settings.py
