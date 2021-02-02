@@ -23,7 +23,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = "jcip#1v+$osvb2e8$s84x+4%ns95yvemw66mvn%^v+zz)u-5ga"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -136,4 +136,18 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 ALLOWED_HOSTS = ["*"]
 
+# E-mail
+EMAIL_HOST = ""
+EMAIL_HOST_USER = "ricardo.facincani@gmail.com"
+EMAIL_HOST_PASSWORD = "123456"
+DEFAULT_FROM_EMAIL = "admin@djangoecommerce.com"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
+
+try:
+    #    print("Importando arquivo de settings local:")
+    from .local_settings import *
+except ImportError:
+    #    print("Não foi possível importar o arquivo de settings local")
+    pass
