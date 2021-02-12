@@ -28,7 +28,7 @@ class ProductListTestCase(TestCase):
         product_list = response.context["products"]
         self.assertEquals(product_list.count(), 1)
         paginator = response.context["paginator"]
-        self.assertEquals(paginator.num_pages, 4)
+        self.assertEquals(paginator.num_pages, 1)
 
     def test_page_not_found(self):
         response = self.client.get("{}?page=5".format(self.url))
