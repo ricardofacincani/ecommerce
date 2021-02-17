@@ -22,11 +22,23 @@ from django.contrib import admin
 from django.conf import settings
 from core import views
 from django.views.static import serve as serve_static
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
     url(r"^$", views.index, name="index"),
     url(r"^contato/$", views.contact, name="contact"),
+    # path('login', auth_views.LoginView.as_view(template_name='accounts/login.html'))
+    url(
+        r"^entrar/$",
+        auth_views.LoginView.as_view(template_name="login.html"),
+        name="login",
+    ),
+    url(
+        r"^sair/$",
+        auth_views.LogoutView.as_view(template_name="login.html", next_page="index"),
+        name="logout",
+    ),
     url(r"^catalogo/", include(("catalog.urls", "catalog"), namespace="catalog")),
     # url(r'^reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
     url(r"^admin/", admin.site.urls),

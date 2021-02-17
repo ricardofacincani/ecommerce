@@ -146,6 +146,10 @@ EMAIL_HOST_PASSWORD = "123456"
 DEFAULT_FROM_EMAIL = "admin@djangoecommerce.com"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
+# Auth
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_URL = "index"
 
 try:
     #    print("Importando arquivo de settings local:")
